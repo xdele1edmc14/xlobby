@@ -1,0 +1,135 @@
+# XLobby configuration
+# This file is regenerated on startup, reload, config check, and spawn update.
+# Your existing values are preserved, missing options are added, and unsafe values are repaired.
+config-version: 6
+
+# The single lobby destination used by /lobby, join teleporting, respawning, and void rescue.
+spawn:
+  world: "world"
+  x: 0.0
+  y: 64.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
+
+# Choose which worlds receive lobby-only behavior such as protection, void rescue,
+# bossbars, and welcome presentation. /lobby, join teleports, and lobby respawns can
+# always bring players into the lobby from other worlds. Modes: blacklist, whitelist, none.
+# Add every lobby world here if you use multiple lobby worlds.
+# /xlobby setspawn keeps its new spawn world in this whitelist; a single default entry is replaced.
+world-filter:
+  enabled: true
+  mode: "whitelist"
+  worlds:
+    - "world"
+
+lobby-command:
+  # Warmup before /lobby teleports. Use 0 for an immediate teleport.
+  delay-ticks: 0
+  cooldown-seconds: 3
+  cancel-on-move: true
+  cancel-on-damage: true
+
+respawn:
+  teleport-to-lobby: true
+
+void-check:
+  enabled: true
+  threshold: -100.0
+  teleport-cooldown-ms: 1000
+
+join-actions:
+  enabled: true
+  # disabled, first, or every
+  teleport-mode: "every"
+  delay-ticks: 5
+
+  welcome-messages-enabled: true
+  welcome-messages:
+    - "<gold>Welcome back, <player>!</gold>"
+    - "<gray>Use /help to see the available commands.</gray>"
+  first-join-welcome-messages:
+    - "<gold>Welcome to the server for the first time, <player>!</gold>"
+    - "<gray>We hope you enjoy your stay.</gray>"
+
+  title:
+    enabled: true
+    text: "<gold>Welcome to the Server!</gold>"
+    subtitle: "<gray>Enjoy your stay!</gray>"
+    first-join-text: "<gold>Welcome, <player>!</gold>"
+    first-join-subtitle: "<gray>Thanks for joining us.</gray>"
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+  sound:
+    enabled: false
+    type: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+
+  # A visual firework created by XLobby can never damage players.
+  spawn-firework: false
+
+  # Suppression and the custom broadcast are independent. Empty custom text disables the broadcast.
+  suppress-default-join-message: true
+  custom-join-message: "<yellow><player> joined the lobby!</yellow>"
+  first-join-message: "<gold><player> joined for the first time!</gold>"
+
+bossbar:
+  enabled: true
+  messages:
+    - "<gold>Welcome to the Lobby!</gold>"
+    - "<green>Online: <online>/<max_players></green>"
+  colors:
+    - "YELLOW"
+    - "GREEN"
+  overlays:
+    - "PROGRESS"
+  progress: 1.0
+  interval-ticks: 100
+
+# Small, world-scoped lobby protections. Every setting is off by default.
+protections:
+  enabled: false
+  prevent-damage: false
+  prevent-hunger: false
+  prevent-block-break: false
+  prevent-block-place: false
+  prevent-item-drop: false
+  prevent-item-pickup: false
+  prevent-creature-spawn: false
+  prevent-weather-change: false
+
+# All messages support MiniMessage. Player-aware messages also support PlaceholderAPI.
+# Built-ins: <player>, <displayname>, <world>, <online>, <max_players>, and spawn coordinates.
+messages:
+  no-permission: "<red>You do not have permission to use this command.</red>"
+  player-only: "<red>This command can only be used by a player.</red>"
+  no-spawn: "<red>The lobby spawn is unavailable. Ask an administrator to run /xlobby setspawn.</red>"
+  unsafe-spawn: "<red>The configured lobby spawn is not safe.</red>"
+  world-disabled: "<red>XLobby is disabled in this world.</red>"
+  block-break-denied: "<red>You cannot break blocks in the lobby.</red>"
+  block-place-denied: "<red>You cannot place blocks in the lobby.</red>"
+  item-drop-denied: "<red>You cannot drop items in the lobby.</red>"
+  item-pickup-denied: "<red>You cannot pick up items in the lobby.</red>"
+  teleport-success: "<green>Teleported to the lobby.</green>"
+  teleport-failed: "<red>The lobby teleport failed. Please try again.</red>"
+  teleport-warmup: "<yellow>Teleporting in <seconds> seconds. Do not move or take damage.</yellow>"
+  teleport-cancelled-move: "<red>Teleport cancelled because you moved.</red>"
+  teleport-cancelled-damage: "<red>Teleport cancelled because you took damage.</red>"
+  teleport-cooldown: "<red>Please wait <seconds> seconds before using /lobby again.</red>"
+  void-rescue: "<yellow>You fell into the void and were returned to the lobby.</yellow>"
+  reload-success: "<green>XLobby reloaded. Added <added> missing entries and repaired <repaired> invalid entries.</green>"
+  config-backup-created: "<yellow>The invalid config was backed up as <backup>.</yellow>"
+  setspawn-success: "<green>Lobby spawn set to <world> at <x>, <y>, <z>.</green>"
+  check-regeneration: "<gray>Config regenerated: added <added> missing entries and repaired <repaired> invalid entries.</gray>"
+  check-ok: "<green>The configuration is valid. Spawn world: <world>.</green>"
+  check-warning: "<yellow>The configured spawn world '<world>' is not currently loaded.</yellow>"
+  unknown-subcommand: "<red>Unknown subcommand. Use /xlobby for help.</red>"
+  help-header: "<gold>XLobby <version></gold>"
+  help-reload: "<white>/xlobby reload</white> <gray>- regenerate and reload the configuration</gray>"
+  help-setspawn: "<white>/xlobby setspawn</white> <gray>- set the lobby spawn</gray>"
+  help-check: "<white>/xlobby check</white> <gray>- regenerate and verify the configuration and spawn</gray>"
+  help-info: "<white>/xlobby info</white> <gray>- show enabled modules</gray>"
+  info: "<gold>XLobby <version></gold> <gray>| spawn=<spawn>, PlaceholderAPI=<papi>, join=<join>, void=<void>, bossbar=<bossbar>, protections=<protections></gray>"

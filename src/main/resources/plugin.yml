@@ -1,0 +1,51 @@
+name: XLobby
+version: "${project.version}"
+main: com.xlobby.XLobby
+api-version: "1.21"
+authors: [XLobby contributors]
+description: Minimal, performance-focused lobby essentials for Paper servers
+load: POSTWORLD
+softdepend: [PlaceholderAPI]
+
+commands:
+  xlobby:
+    description: XLobby administration and diagnostics
+    usage: /xlobby <reload|setspawn|check|info>
+  lobby:
+    aliases: [spawn]
+    description: Teleport to the lobby spawn
+    usage: /lobby
+    permission: xlobby.lobby
+
+permissions:
+  xlobby.admin:
+    description: Grants every XLobby administrative command
+    default: op
+    children:
+      xlobby.command.reload: true
+      xlobby.command.setspawn: true
+      xlobby.command.check: true
+      xlobby.command.info: true
+      xlobby.bypass: true
+      xlobby.protection.bypass: true
+  xlobby.command.reload:
+    description: Regenerate and reload the XLobby configuration
+    default: op
+  xlobby.command.setspawn:
+    description: Set the lobby spawn
+    default: op
+  xlobby.command.check:
+    description: Validate the configuration and lobby spawn
+    default: op
+  xlobby.command.info:
+    description: View XLobby version and module state
+    default: op
+  xlobby.lobby:
+    description: Use /lobby or /spawn
+    default: true
+  xlobby.bypass:
+    description: Bypass void rescue
+    default: false
+  xlobby.protection.bypass:
+    description: Bypass player-facing lobby protections
+    default: op

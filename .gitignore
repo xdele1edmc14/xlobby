@@ -1,0 +1,63 @@
+# Maven and Java build output
+target/
+*.class
+dependency-reduced-pom.xml
+
+# Local Paper server files
+plugins/
+logs/
+cache/
+world/
+world_nether/
+world_the_end/
+eula.txt
+server.properties
+bukkit.yml
+commands.yml
+help.yml
+paper*.yml
+spigot.yml
+purpur.yml
+
+# Promotional banner workspace (not part of the plugin repository)
+node_modules/
+/dist/
+/exports/
+/public/
+/scripts/
+/docs/superpowers/
+/index.html
+/package.json
+/package-lock.json
+/tsconfig.json
+/vite.config.ts
+/minecraft-font.zip
+/minecraft-ten-font.zip
+/minecraft_title.png
+/src/*.ts
+/src/*.css
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE files
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local secrets and crash output
+.env
+.env.*
+!.env.example
+*.log
+hs_err_pid*
+replay_pid*
