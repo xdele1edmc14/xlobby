@@ -1,5 +1,9 @@
 # XLobby
 
+<p align="center">
+  <img src="https://i.imgur.com/1dx3a3m.jpeg" alt="XLobby — minimalist, performance-focused lobby plugin">
+</p>
+
 Minimal, performance-focused lobby essentials for Paper servers.
 
 XLobby provides the features most lobby servers need without turning into a scoreboard, NPC, cosmetics, economy, or server-selector suite. Every protection is optional, expensive work is avoided on hot paths, and existing configurations are regenerated safely when new options are added.
@@ -93,3 +97,9 @@ Bug reports and focused pull requests are welcome. Keep additions within XLobby'
 XLobby is released under the [MIT License](LICENSE).
 
 Created by [xDele1ed](https://github.com/xdele1edmc14).
+
+## Community
+
+Need help, want to report a problem, or have a focused feature suggestion? [Join the Discord server](https://discord.gg/XPUh4zJagc).
+
+Publishing on SpigotMC? A concise, searchable, copy-ready summary is available in [MARKETPLACE.bbcode](MARKETPLACE.bbcode).
